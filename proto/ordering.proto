@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package eshop.ordering;
+
+option go_package = "eshop/ordering/pb";
+
+message OrderBody {
+    string product = 1;
+    int32 quantity = 2;
+    string buyer = 3;
+    
+}
+
+message CreateOrderRequest{
+    OrderBody body = 1;
+}
+
+message CreateOrderResponse {
+    string orderId = 1;
+}
+
+service Ordering {
+  rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse) {
+    
+  }
+}
